@@ -11,8 +11,11 @@ import { getDistanceBetweenTwoCoordinates } from "../../../utils/geolocation";
 const findUsers = (ctx) => {
   const { emailContains, coordinate, radius, fields } = ctx.query;
 
-  console.log(ctx.usersDB);
-
+  /**
+   * Thinking in a production environment this piece of code could be moved
+   * to a repository or provider in order to be reused and keep the code
+   * inside of the controller as small and simple as possible.
+   */
   let matchingUsers = ctx.usersDB.filter((user) => {
     let emailMatch = false;
     let coordinateMatch = false;
